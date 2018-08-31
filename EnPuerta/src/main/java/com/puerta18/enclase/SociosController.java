@@ -45,7 +45,7 @@ public class SociosController {
 			
 			PreparedStatement consulta=				
 		
-					connection.prepareStatement("SELECT * FROM socios WHERE unaccent (lower (nombre)) LIKE ? OR  (lower (apellido)) LIKE ? OR dni = ? ORDER BY nombre "); 
+					connection.prepareStatement("SELECT * FROM socios WHERE unaccent (lower (nombre)) LIKE unaccent (lower (?)) OR  unaccent (lower (apellido)) LIKE unaccent (lower (?)) OR dni = ? ORDER BY nombre "); 
 			
 			 consulta.setString (1, "%" + palabraClave + "%" ); 
 			 consulta.setString (2, "%" + palabraClave + "%" );
